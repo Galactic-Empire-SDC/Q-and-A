@@ -12,8 +12,6 @@ const db = new Client({
 db.connect();
 
 const getQuestions = (req, res) => {
-  console.log('inside db question: req =', req.query);
-
   const queryString =
   `SELECT q.product_id ,
   (SELECT json_agg (

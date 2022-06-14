@@ -19,9 +19,3 @@ app.get('/qa/questions/:question_id/answers', (req, res) => {
   console.log('in server, answers api', req);
   db.getAnswers(req, res);
 })
-
-
-// app.post('/qa/questions', (req, res) => {
-//   console.log('in server, adding question', req)
-//   db.addQuestion(req, res)
-// })

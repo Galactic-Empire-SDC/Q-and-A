@@ -8,7 +8,7 @@ CREATE TABLE questions (
   question_id SERIAL PRIMARY KEY,
   product_id INT NOT NULL,
   question_body TEXT NOT NULL,
-  question_date VARCHAR NOT NULL,
+  question_date BIGINT NOT NULL,
   asker_name TEXT NOT NULL,
   asker_email TEXT NOT NULL,
   reported BOOLEAN NOT NULL,
@@ -20,7 +20,7 @@ CREATE TABLE answers (
   answer_id SERIAL PRIMARY KEY,
   question INT references questions (question_id),
   body TEXT NOT NULL,
-  date VARCHAR NOT NULL,
+  date BIGINT NOT NULL,
   answerer_name TEXT NOT NULL,
   answerer_email TEXT NOT NULL,
   reported BOOLEAN NOT NULL,
@@ -39,3 +39,5 @@ CREATE TABLE answers_photos (
 -- COPY answers (answer_id, question, body, date, answerer_name, answerer_email, reported, helpfulness) FROM '/Users/esmy/Dev/sdc-data/answers.csv' delimiter ',' CSV HEADER;
 
 -- COPY answers_photos (id, answer_id, url) FROM '/Users/esmy/Dev/sdc-data/answers_photos.csv' delimiter ',' CSV HEADER;
+
+

@@ -40,8 +40,7 @@ const getQuestions = (req, res) => {
  FROM questions q
  WHERE product_id = ${req.query.product_id}
  GROUP BY q.product_id
-  `
-  // const queryString = `SELECT * FROM questions WHERE product_id = ${req.query.product_id};`
+`
   db.query(queryString)
   .then((results) => {
     res.status(200).send(results.rows);
@@ -51,10 +50,8 @@ const getQuestions = (req, res) => {
     res.send(err);
   })
 }
-// to_timestamp(date_written) as time_from_epoch
-// (product_id, body, asker_name, asker_email, reported, helpful)
+
 const getAnswers = (req, res) => {
-  console.log('inside db answers: req =', req.params);
   const queryString =
   `SELECT
 	a.question,
@@ -74,12 +71,11 @@ const getAnswers = (req, res) => {
 			WHERE answer_id = a.answer_id)
 	)))as results)
 	FROM answers AS a
-	WHERE question = ${req.params.question_id}
+	WHERE question = ${req.query.question_id}
   GROUP BY a.question
   `
   db.query(queryString)
   .then((results) => {
-    console.log(results);
     res.status(200).send(results.rows[0]);
   })
   .catch((err) => {

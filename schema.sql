@@ -43,7 +43,7 @@ CREATE TABLE answers_photos (
 
 CREATE INDEX questionIndex ON questions (question_id);
 CREATE INDEX productForeignkeyIndex ON questions (product_id);
-CREATE INDEX answersIndex ON answers (answer_id)
+CREATE INDEX answersIndex ON answers (answer_id);
 CREATE INDEX questionForeignKeyIndex ON answers (question);
 CREATE INDEX answersPhotoIndex ON answers_photos (id);
 CREATE INDEX answersIdForeignKeyIndex ON answers_photos (answer_id);

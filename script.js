@@ -2,7 +2,7 @@ import http from 'k6/http';
 import { sleep, check } from 'k6';
 export const options = {
   stages: [
-    { target: 1000, duration: '60s' },
+    { target: 1000, duration: '30s' },
   ],
 };
 //Below randomize the endpoints
